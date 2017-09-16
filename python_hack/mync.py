@@ -54,6 +54,10 @@ def server_loop():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((target, port))
     server.listen(5)
+	while True:
+		client_socket, addr = server.accept()
+		client_thread = threading.Thread(target=client_handler, args=(client_socket,))
+		client_thread.start()
 
 def run_command(command):
     command = command.rstrip()
@@ -82,17 +86,17 @@ def client_handler(client_socket):
             client_socket.send("Successfully saved file to %s \r\n" % upload_destination)
         except:
             client_socket.send("Failed to save file to %s \r\n" % upload_destination)
-        if len(execute):
-            output = run_command(execute)
-            client_socket.send(output)
-        if command:
-            while True:
-                client_socket.send("<mync:#> ")
-                cmd_buffer = ""
-                while "\n" not in cmd_buffer:
-                    cmd_buffer += client_socket.recv(1024)
-                response = run_command(cmd_buffer)
-                client_socket.send(response)
+	if len(execute):
+		output = run_command(execute)
+		client_socket.send(output)
+	if command:
+		while True:
+			client_socket.send("<mync:#> ")
+			cmd_buffer = ""
+			while "\n" not in cmd_buffer:
+				cmd_buffer += client_socket.recv(1024)
+			response = run_command(cmd_buffer)
+			client_socket.send(response)
 
 def main():
     global listen
