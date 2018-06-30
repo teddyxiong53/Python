@@ -15,7 +15,6 @@ service_args = [
     '--disk-cache=yes',
     '--ignore-ssl-errors=true'
 ]
-
 driver = None
 
 def write_ssr_to_file():
