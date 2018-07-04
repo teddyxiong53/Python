@@ -1,0 +1,11 @@
+{
+	"server":"remote-shadowsocks-server-ip-addr",
+	"server_port":443,
+	"local_address":"127.0.0.1",
+	"local_port":1081,
+	"password":"your-passwd",
+	"timeout":300,
+	"method":"chacha20-ietf",
+	"fast_open":false,
+	"workers":1
+}
