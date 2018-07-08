@@ -1,12 +1,10 @@
-#coding: utf-8
-import struct
-#  本地字节序
-buffer = struct.pack('ihb', 1,2,3)
-print(buffer)
-print( struct.unpack('ihb', buffer))
+import select
 
-print("--------------")
-# 网络字节序
-data = [1,2,3]
-buffer = struct.pack('!ihb', *data)
-print(buffer)
+if hasattr(select, 'epoll'):
+    print "has epoll"
+
+if hasattr(select, 'kqueue'):
+    print "has kqueue"
+
+if hasattr(select, 'select'):
+    print "has select"

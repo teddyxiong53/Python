@@ -33,6 +33,18 @@ def is_ip(address):
             pass
     return False
 
+
+def inet_ntop(family, ipstr):
+    pass
+
+
+def patch_socket():
+    if not hasattr(socket, 'inet_pton'):
+        socket.inet_pton = inet_pton
+    if not  hasattr(socket, 'inet_ntop'):
+        socket.inet_ntop = inet_ntop
+
+
 class IPNetwork(object):
     ADDRLENGTH = {socket.AF_INET:32, socket.AF_INET6: 128, False:0}
     def __init__(self, addrs):
