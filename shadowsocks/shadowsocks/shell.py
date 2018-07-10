@@ -1,3 +1,6 @@
+from __future__ import print_function, division, with_statement, absolute_import
+
+
 import sys,os,os.path
 import logging
 import getopt
@@ -222,3 +225,9 @@ def get_config(is_local):
     check_config(config, is_local)
     return config
 
+def print_exception(e):
+    global verbose
+    logging.error(e)
+    if verbose > 0:
+        import traceback
+        traceback.print_exc()
