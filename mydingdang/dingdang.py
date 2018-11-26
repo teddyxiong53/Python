@@ -4,7 +4,10 @@ import argparse
 import os, sys
 import os.path
 import logging
+from client import dingdangpath
+from client import config
 
+print dingdangpath.APP_PATH
 parser = argparse.ArgumentParser(description="this is my dingdang speaker")
 parser.add_argument("--local", action="store_true", help="use stdin to input rather than mic ")
 parser.add_argument("--diagnose", action="store_true", help="to diagnose the network")
@@ -17,7 +20,9 @@ args = parser.parse_args()
 
 class Dingdang(object):
 	def __init__(self):
-		pass
+		self._logger = logging.getLogger(__name__)
+		config.init()
+		
 if __name__ == '__main__':
 	logging.basicConfig(
 		format="%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s: %(message)s",
