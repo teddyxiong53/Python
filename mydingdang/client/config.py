@@ -16,3 +16,13 @@ def init():
 			#print _config['name'], _config['age']
 	except Exception:
 		_logger.critical("can not open profile.json")
+		
+def get(item='', default=None):
+	if not item :
+		return _config
+	try:
+		return _config[item]
+	except KeyError:
+		logger.warning("%s not found in config file, default to %s", item, default)
+		return default
+		

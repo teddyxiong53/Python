@@ -22,6 +22,12 @@ class Dingdang(object):
 	def __init__(self):
 		self._logger = logging.getLogger(__name__)
 		config.init()
+		stt_engine_slug = config.get('stt_engine', 'sphinx')
+		stt_engine_class = stt.get_engine_by_slug(stt_engine_slug)
+		
+		slug = config.get('stt_passive_engine', stt_engine_slug)
+		stt_passive_engine_class = stt.get_engine_by_slug(slug)
+		
 		
 if __name__ == '__main__':
 	logging.basicConfig(

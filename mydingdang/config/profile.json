@@ -1,5 +1,16 @@
 {
-	"name": "xhl",
-	"age": 27
+	"stt_engine": "baidu-stt",
+	"tts_engine": "baidu-tts",
+	"stt_passive_engine": "sphinx",
+	"baidu_yuyin": {
+		"api_key": "wNqEyF2KysMTiOcSt3HEZYhcvb0hjriX",
+		"secret_key": "97UrqLeyNXhjtLeqL5XNPxYvAEQsGb7S",
+		"per": 0
+	},
+	"robot": "tuling",
+	"tuling" : {
+		"tuling_key" : "1c31d2b4428f4492991fe28f8c6c40ed"
+	}
 }
+
 
