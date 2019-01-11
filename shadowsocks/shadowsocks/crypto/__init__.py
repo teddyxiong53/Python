@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
-# Copyright 2012-2015 clowwindy
+# Copyright 2015 clowwindy
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
